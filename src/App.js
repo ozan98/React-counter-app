@@ -6,6 +6,18 @@ import Counters from './components/counters';
 
 class App extends Component {
 
+  constructor() {
+    super();
+    console.log('app- constructor');
+    
+  }
+
+  //good for making ajax calls to the server
+  componentDidMount(){
+    console.log("app - mounted")
+  }
+  
+
   state = {
       counters: [
           { id: 1, value: 4 },
@@ -37,6 +49,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('app - Rendered')
     return (
       <React.Fragment>
         <NavBar totalCounters={ this.state.counters.filter(c => c.value > 0).length } />

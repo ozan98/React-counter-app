@@ -4,6 +4,7 @@ import react, { Component } from 'react';
 class Counter extends Component {
 
     render() {
+        console.log('counter - Rendered')
         // this is a jsx syntax
         // jsx expression must have only one element
         // attributes for class are different in jsx. They are called className
