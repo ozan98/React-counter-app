@@ -5,19 +5,13 @@ class Counter extends Component {
     // state is a property object that contains data that this component needs
     state = {
         count: 0,
-        tags: ['tag1', 'tags2', 'tags3']
-    };
-
-    renderTags() {
-        if(this.state.tags.length === 0){
-            return <p>There are no tags</p>
-        } else {
-            return ( <ul>
-                        { this.state.tags.map(tag => <li key={ tag } >{ tag }</li>) }
-                    </ul>
-            )
-        }
+        
     }
+    
+    handleIncrement = () => {
+        console.log('Increment Count', this);
+    }
+
 
     render() {
         // this is a jsx syntax
@@ -25,10 +19,20 @@ class Counter extends Component {
         // attributes for class are different in jsx. They are called className
         return (
         <div>
-            { this.state.tags.length === 0 && "please create a new tag!" }
-            { this.renderTags() }
+            <span className={ this.getBadgeClasses() }>{ this.formatCount() }</span>
+            <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
         </div>
         );
+    }
+    getBadgeClasses(){
+            let classes = "badge m-2 badge-";
+            classes += this.state.count === 0 ? 'warning' : "primary";
+            return classes;
+    }
+
+    formatCount() {
+        const { count } = this.state;
+        return this.state.count === 0 ? 'Zero' : this.state.count;
     }
 }
 
