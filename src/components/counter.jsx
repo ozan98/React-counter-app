@@ -2,6 +2,17 @@ import React from 'react';
 import react, { Component } from 'react';
 
 class Counter extends Component {
+    //update hook
+    //this method is called after and update has been made on the component
+    //means we have new states and new props compared to the old states and old props
+    //and if there is a change then we can make a ajax request to a server
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prevProps', prevProps)
+        console.log('prevStates', prevState)
+        if(prevProps.counter.value !== this.props.counter.value){
+            //Ajax call and get new data from the server
+        }
+    }
 
     render() {
         console.log('counter - Rendered')
