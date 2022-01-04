@@ -5,12 +5,11 @@ class Counter extends Component {
     // state is a property object that contains data that this component needs
     state = {
         count: 0,
-        
     }
     
-    handleIncrement = () => {
-        console.log('Increment Count', this);
-    }
+    handleIncrement = product => {
+        this.setState({ count: this.state.count + 1 })
+    };
 
 
     render() {
@@ -20,7 +19,7 @@ class Counter extends Component {
         return (
         <div>
             <span className={ this.getBadgeClasses() }>{ this.formatCount() }</span>
-            <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
+            <button onClick={ () => this.handleIncrement({ id: 1 }) } className="btn btn-secondary btn-sm">Increment</button>
         </div>
         );
     }
